@@ -1,0 +1,47 @@
+{
+    "name": "xtend/smart-relay-sdk",
+    "description": "SDK For Generic Smart Relay Device",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "IoT",
+	"controller",
+	"devices",
+	"php",
+	"sdk",
+	"php-sdk"
+    ],
+    "homepage": "http://xtendindonesia.co.id",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.4 || ^8.1",
+        "ext-sockets": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xtend\\Device\\": "src/Xtend/Device"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xtend\\DeviceTest\\": "test/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.0.1-dev"
+        }
+    },
+    "require-dev": {
+        "laminas/laminas-coding-standard": "^2.0"
+    },
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "phpcs": "phpcs --standard=phpcs.xml"
+    }
+}

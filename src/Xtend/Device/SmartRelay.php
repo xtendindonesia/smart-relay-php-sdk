@@ -128,8 +128,8 @@ class SmartRelay
     /**
      * Create Control Bit
      *
-     * @param  int $pin
-     * @param  int $value
+     * @param int $pin
+     * @param int $value
      *
      * @return array of values in hexadecimal
      */
@@ -149,7 +149,7 @@ class SmartRelay
     /**
      * Create Enable Bit
      *
-     * @param  int $pin
+     * @param int $pin
      *
      * @return array of values in hexadecimal
      */
@@ -162,16 +162,18 @@ class SmartRelay
     /**
      * Sum Command List
      *
-     * @param  array $commandList
+     * @param array $commandList
      *
      * @return int
      */
     static private function sumCommandList(array $hexCommandList): int
     {
         // get decimal value from hexadecimal command list
-        $decCommandList = array_map(function ($v) {
+        $decCommandList = array_map(
+            function ($v) {
                               return hexdec($v);
-                          }, $hexCommandList);
+            }, $hexCommandList
+        );
     
         // get total value value from commands
         return array_sum($decCommandList);
@@ -180,7 +182,7 @@ class SmartRelay
     /**
      * Create Check Sums
      *
-     * @param  array $commandList
+     * @param array $commandList
      *
      * @return array
      */
@@ -196,9 +198,9 @@ class SmartRelay
     /**
      * Compose Command For Writing to Device Socket
      *
-     * @param int       $pin 
-     * @param int       $value 
-     * @param int|null  $deviceId 
+     * @param int      $pin 
+     * @param int      $value 
+     * @param int|null $deviceId 
      *
      * @return command string
      */
@@ -232,9 +234,9 @@ class SmartRelay
     /**
      * Push Command to SmartRelay
      *
-     * @param int       $pin 
-     * @param int       $value 
-     * @param int|null  $deviceId 
+     * @param int      $pin 
+     * @param int      $value 
+     * @param int|null $deviceId 
      *
      * @return response from device when this method works 
      * @throw  \RuntimeException
@@ -274,12 +276,12 @@ class SmartRelay
             }
 
             switch ($key) {
-                case 'max_response_len':
-                    $this->maxResponseLen = $value;
-                    break;
-                case 'max_socket_rec_timeout':
-                    $this->maxSocketRecTimeout = $value;
-                    break;
+            case 'max_response_len':
+                $this->maxResponseLen = $value;
+                break;
+            case 'max_socket_rec_timeout':
+                $this->maxSocketRecTimeout = $value;
+                break;
             }
         }
     }
